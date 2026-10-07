@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+<script>
+(() => {
+  const host = window.location.hostname
+  const privateHost =
+    /^10\./.test(host) ||
+    /^192\.168\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[0-1])\./.test(host)
+
+  if (
+    window.location.protocol === "http:" &&
+    privateHost
+  ) {
+    const target =
+      "http://localhost:" +
+      (window.location.port || "4173") +
+      window.location.pathname +
+      window.location.search +
+      window.location.hash
+
+    console.warn(
+      "WORKSPACE_LOCAL_ORIGIN_REDIRECT",
+      {
+        from: window.location.origin,
+        to: target,
+      },
+    )
+
+    window.location.replace(target)
+  }
+})()
+</script>
+
+<script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

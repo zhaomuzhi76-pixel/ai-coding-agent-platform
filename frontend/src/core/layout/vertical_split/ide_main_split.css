@@ -1,0 +1,11 @@
+/* IDE main 高度约束；grid 定位全由 React inline style 强制。 */
+.ide-workspace-main {
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.ide-workspace-main > .ide-workspace-code,
+.ide-workspace-main > .ide-workspace-prompt {
+  min-height: 0;
+  overflow: hidden;
+}

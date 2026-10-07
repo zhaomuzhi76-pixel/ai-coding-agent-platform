@@ -1,0 +1,58 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ===== Node / React / Electron =====
+node_modules/
+dist/
+build/
+.vite/
+frontend/release/
+frontend/out/
+frontend/test-results/
+test-results/
+
+# ===== 环境变量与密钥（绝不外泄） =====
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+
+# ===== AI 模型与数据文件（太大） =====
+*.bin
+*.gguf
+*.safetensors
+*.pt
+*.pth
+models/
+data/
+*.log
+
+# ===== 本地数据库与向量库（极其重要） =====
+vector_db/
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+runtime_sessions.db
+
+# ===== 自动拆分产生的垃圾文件 =====
+*.bak
+*.bak*
+*.bak_autosplit
+
+# ===== 工业级安全与敏感词库（绝对不许传） =====
+backend/rag/safety/lexicon/A1_high_risk.txt
+backend/rag/safety/lexicon/A2_mid_risk.txt
+
+# ===== 系统临时文件 =====
+.DS_Store
+Thumbs.db
+/dev/shm/*
+.layer-review/

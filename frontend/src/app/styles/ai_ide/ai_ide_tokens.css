@@ -1,0 +1,12 @@
+:root {
+  --ide-bg: #0b0f14;
+  --ide-panel: #111821;
+  --ide-panel-soft: #151d27;
+  --ide-border: #263241;
+  --ide-text: #e6edf3;
+  --ide-muted: #8b98a8;
+  --ide-accent: #3b82f6;
+  --ide-success: #22c55e;
+  --ide-warning: #f59e0b;
+  --ide-danger: #ef4444;
+}

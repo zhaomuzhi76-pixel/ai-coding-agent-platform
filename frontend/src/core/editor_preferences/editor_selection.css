@@ -1,0 +1,46 @@
+/* 选中态可见性契约：
+   鼠标拖选任意文字，选中区域必须清晰可读。
+   策略：中蓝底 + 纯白字，对比度 > 7:1。
+   编辑器代码区用更深一档的蓝，避免与语法高亮撞色。 */
+
+/* —— 全局兜底 —— */
+::selection {
+  background-color: #3b5b8c;
+  color: #ffffff;
+}
+::-moz-selection {
+  background-color: #3b5b8c;
+  color: #ffffff;
+}
+
+/* —— 编辑器代码区：深一档蓝 —— */
+.ide-workspace-code ::selection,
+.workspace-editor ::selection,
+.workspace-editor__content ::selection {
+  background-color: #26456e;
+  color: #ffffff;
+}
+.ide-workspace-code ::-moz-selection,
+.workspace-editor ::-moz-selection,
+.workspace-editor__content ::-moz-selection {
+  background-color: #26456e;
+  color: #ffffff;
+}
+
+/* —— Agent composer / 消息 / 侧边栏 / 终端 —— */
+.agent-composer ::selection,
+.ide-workspace-bottom ::selection,
+.ws-sidebar-surface ::selection,
+.ide-workspace-prompt ::selection,
+.ide-workspace-review ::selection {
+  background-color: #3b5b8c;
+  color: #ffffff;
+}
+.agent-composer ::-moz-selection,
+.ide-workspace-bottom ::-moz-selection,
+.ws-sidebar-surface ::-moz-selection,
+.ide-workspace-prompt ::-moz-selection,
+.ide-workspace-review ::-moz-selection {
+  background-color: #3b5b8c;
+  color: #ffffff;
+}

@@ -1,0 +1,18 @@
+.ide-execution {
+  height:100%;
+  background:#080b10;
+  color:var(--ide-text);
+}
+
+.ide-execution-item {
+  padding:8px 12px;
+  border-bottom:1px solid var(--ide-border);
+}
+
+.ide-status-running {
+  color:var(--ide-accent);
+}
+
+.ide-status-success {
+  color:var(--ide-success);
+}

@@ -1,0 +1,130 @@
+/* 编辑器偏好：字号 / 前景色。CSS 变量由 documentElement 注入。 */
+.ide-workspace-code {
+  position: relative;
+  font-size: var(--codex-font-size, inherit);
+  color: var(--codex-fg, inherit);
+}
+
+.editor-prefs {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  border: 1px solid #26303b;
+  border-radius: 6px;
+  background: rgba(16, 22, 30, 0.92);
+  backdrop-filter: blur(6px);
+  font-size: 11px;
+  color: #d9e2ec;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.editor-prefs__btn {
+  min-width: 24px;
+  height: 22px;
+  padding: 0 6px;
+  border: 1px solid #304052;
+  border-radius: 4px;
+  background: #151f2a;
+  color: #d9e4ef;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  font-family: inherit;
+}
+.editor-prefs__btn:hover {
+  background: #1f2c3a;
+  border-color: #4a6a8a;
+  color: #f0f6ff;
+}
+.editor-prefs__btn:active { transform: translateY(1px); }
+.editor-prefs__value {
+  min-width: 34px;
+  text-align: center;
+  color: #8795a5;
+  font-variant-numeric: tabular-nums;
+}
+.editor-prefs__color {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid #304052;
+  border-radius: 4px;
+  background: #151f2a;
+  cursor: pointer;
+}
+
+/* ===== 真正生效的编辑器：workspace-editor ===== */
+/* 用 CSS 变量驱动，无 !important 也能赢——比 editor_surface.css 里的
+   局部定义更靠后加载，且变量名一致。 */
+
+.workspace-editor,
+.workspace-editor * {
+  font-size: var(--editor-font-size, inherit);
+}
+.workspace-editor {
+  color: var(--editor-fg, inherit);
+}
+.workspace-editor__body,
+.workspace-editor__line,
+.workspace-editor pre,
+.workspace-editor code {
+  font: var(--editor-font-size, 13px) / var(--editor-line-height, 1.6)
+    var(--editor-font, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  color: var(--editor-fg, inherit);
+}
+
+/* ===== 色板 ===== */
+.editor-prefs__swatches {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 6px;
+  border-left: 1px solid #26303b;
+  border-right: 1px solid #26303b;
+  margin: 0 4px;
+}
+.editor-prefs__swatch {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform .08s, box-shadow .08s;
+}
+.editor-prefs__swatch:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 1px #7aa2f7;
+}
+.editor-prefs__swatch[data-active="true"] {
+  box-shadow: 0 0 0 2px #7aa2f7;
+}
+.editor-prefs__custom {
+  display: inline-flex;
+  cursor: pointer;
+}
+.editor-prefs__custom input[type="color"] {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid #304052;
+  border-radius: 4px;
+  background: #151f2a;
+  cursor: pointer;
+}
+
+/* ===== 强制命中真实编辑器内容容器 ===== */
+.workspace-editor__body,
+.workspace-editor__body pre,
+.workspace-editor__body code,
+.workspace-editor__body textarea,
+.workspace-editor__body span {
+  font-size: var(--editor-font-size, 13px) !important;
+}
+.workspace-editor__body {
+  color: var(--editor-fg, #d9e2ec) !important;
+}

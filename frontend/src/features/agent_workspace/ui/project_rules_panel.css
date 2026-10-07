@@ -1,0 +1,87 @@
+/* 项目规则面板 —— 嵌入 Agent Composer 下方 */
+.prp {
+  border-top: 1px solid var(--border, #2a2f3a);
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+}
+.prp__head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px; cursor: pointer; user-select: none;
+  color: var(--fg-dim, #8892a0);
+}
+.prp__head:hover { background: rgba(118, 169, 255, 0.04); }
+.prp__arrow { font-size: 9px; width: 12px; }
+.prp__title { font-weight: 600; color: var(--fg, #c9d4e5); }
+.prp__count { font-size: 11px; opacity: 0.7; }
+.prp__spacer { flex: 1; }
+.prp__btn {
+  padding: 2px 8px; font-size: 11px; border-radius: 4px;
+  border: 1px solid var(--border, #2a2f3a);
+  background: transparent; color: inherit; cursor: pointer;
+}
+.prp__btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.05); }
+.prp__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.prp__btn--primary {
+  background: rgba(80, 150, 255, 0.18);
+  border-color: rgba(80, 150, 255, 0.4);
+}
+.prp__btn--danger { color: #ff9090; border-color: rgba(255, 120, 120, 0.4); }
+.prp__err {
+  padding: 6px 12px; color: #ff8888; font-size: 11px;
+  background: rgba(255, 100, 100, 0.08);
+}
+.prp__body {
+  max-height: 280px; overflow-y: auto;
+  padding: 4px 12px 10px;
+}
+.prp__add {
+  display: flex; gap: 6px; padding: 6px 0; flex-wrap: wrap;
+}
+.prp__add input, .prp__add select {
+  padding: 3px 6px; border-radius: 4px; font-size: 12px;
+  border: 1px solid var(--border, #2a2f3a);
+  background: rgba(0, 0, 0, 0.2); color: inherit;
+}
+.prp__add input { flex: 1; min-width: 140px; }
+.prp__group { margin-top: 6px; }
+.prp__group-title {
+  font-size: 11px; color: var(--fg-dim, #8892a0);
+  padding: 4px 0 6px; border-bottom: 1px solid var(--border, #2a2f3a);
+  margin-bottom: 4px; letter-spacing: 0.05em;
+}
+.prp__row {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+.prp__scope {
+  padding: 1px 6px; border-radius: 8px; font-size: 10px;
+  background: rgba(255, 255, 255, 0.05); flex-shrink: 0;
+}
+.prp__scope--global { background: rgba(80, 200, 120, 0.15); color: #78cc96; }
+.prp__scope--project { background: rgba(118, 169, 255, 0.15); color: #9ab8ff; }
+.prp__scope--session { background: rgba(255, 200, 80, 0.15); color: #ffd06e; }
+.prp__kind {
+  padding: 1px 6px; border-radius: 8px; font-size: 10px;
+  background: rgba(167, 139, 250, 0.12); color: #c4b5fd;
+  flex-shrink: 0;
+}
+.prp__key {
+  font-family: monospace; font-size: 11px;
+  color: var(--fg-dim, #8892a0); flex: 1;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.prp__val {
+  font-family: monospace; font-size: 11px;
+  color: #78cc96; font-weight: 600;
+}
+.prp__edit {
+  flex: 1; padding: 2px 6px; font-size: 11px;
+  border: 1px solid rgba(80, 150, 255, 0.5);
+  background: rgba(0, 0, 0, 0.3); color: inherit;
+  border-radius: 3px; font-family: monospace;
+}
+.prp__more { padding: 6px 0; color: var(--fg-dim, #8892a0); font-size: 11px; }
+.prp__empty {
+  padding: 16px; text-align: center;
+  color: var(--fg-dim, #8892a0); font-size: 12px;
+}

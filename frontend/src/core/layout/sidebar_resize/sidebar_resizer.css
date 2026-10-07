@@ -1,0 +1,22 @@
+.sidebar-resizer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: #26303b;
+  transition: width 120ms, background 120ms, box-shadow 120ms;
+}
+.sidebar-resizer:hover::before,
+body.sidebar-resize--active .sidebar-resizer::before {
+  width: 3px;
+  background: #7aa2f7;
+  box-shadow: 0 0 8px rgba(122, 162, 247, 0.75);
+}
+body.sidebar-resize--active,
+body.sidebar-resize--active * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}

@@ -1,0 +1,145 @@
+/* 最终分析报告（Markdown 渲染）*/
+.answer-markdown {
+  padding: 16px 18px;
+  background: #0d131a;
+  border: 1px solid #202b3a;
+  border-radius: 8px;
+  color: #d9e2ec;
+  font-size: 13.5px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.answer-markdown h1,
+.answer-markdown h2,
+.answer-markdown h3,
+.answer-markdown h4,
+.answer-markdown h5,
+.answer-markdown h6 {
+  margin: 14px 0 8px;
+  color: #e8f0fa;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.answer-markdown h1 { font-size: 19px; border-bottom: 1px solid #202b3a; padding-bottom: 6px; }
+.answer-markdown h2 { font-size: 17px; border-bottom: 1px solid #1a2330; padding-bottom: 4px; }
+.answer-markdown h3 { font-size: 15px; }
+.answer-markdown h4 { font-size: 14px; color: #a8b8cd; }
+.answer-markdown p { margin: 8px 0; }
+.answer-markdown ul,
+.answer-markdown ol { margin: 8px 0; padding-left: 22px; }
+.answer-markdown li { margin: 4px 0; }
+.answer-markdown strong { color: #f0f6ff; font-weight: 600; }
+.answer-markdown code {
+  padding: 1px 5px;
+  background: #16212f;
+  border: 1px solid #253244;
+  border-radius: 3px;
+  color: #c0e0ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+.answer-markdown__code {
+  margin: 10px 0;
+  padding: 10px 14px;
+  background: #0a0f16;
+  border: 1px solid #202b3a;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.answer-markdown__code code {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #c8d6e6;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.answer-markdown--empty {
+  color: #68778b;
+  font-style: italic;
+  text-align: center;
+  padding: 24px;
+}
+
+/* 步骤列表 */
+.trace-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #0d141f;
+  border: 1px solid #1e2a3a;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.trace-step {
+  padding: 6px 10px;
+  border-left: 2px solid #2b3b51;
+  background: #101823;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.trace-step--done { border-left-color: #4ade80; }
+.trace-step--repeated { border-left-color: #fbbf24; }
+.trace-step__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.trace-step__num {
+  color: #7aa2f7;
+  font-weight: 600;
+  font-size: 11px;
+}
+.trace-step__action {
+  color: #c0e0ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  padding: 1px 6px;
+  background: #16212f;
+  border-radius: 3px;
+}
+.trace-step__badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: #1b3a2a;
+  color: #4ade80;
+}
+.trace-step__badge--warn {
+  background: #3a2c14;
+  color: #fbbf24;
+}
+.trace-step__remaining {
+  margin-left: auto;
+  color: #68778b;
+  font-size: 10px;
+}
+.trace-step__thought {
+  margin-top: 4px;
+  color: #a8b8cd;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+/* 步骤时间戳 */
+.trace-step__time {
+  font-size: 10px;
+  color: #68778b;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(104, 119, 139, 0.15);
+}
+.trace-step__duration {
+  font-size: 10px;
+  color: #7aa2f7;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(122, 162, 247, 0.12);
+  font-weight: 600;
+}

@@ -1,0 +1,16 @@
+.ide-chat {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+
+.ide-chat-message {
+  padding:12px;
+  border-bottom:1px solid var(--ide-border);
+}
+
+.ide-chat-input {
+  margin-top:auto;
+  padding:12px;
+  border-top:1px solid var(--ide-border);
+}

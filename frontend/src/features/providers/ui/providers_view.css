@@ -1,0 +1,218 @@
+.providers-view {
+  height: 100%;
+  overflow: auto;
+  padding: 20px 24px 32px;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 0% 0%, rgba(118,169,255,.06), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(79,214,154,.04), transparent 55%),
+    var(--bg);
+}
+
+.pv-section {
+  margin-bottom: 22px;
+}
+
+.pv-section__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pv-section__count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+  font-family: ui-monospace, monospace;
+}
+
+.pv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.pv-card {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(17,26,37,.7), rgba(13,20,30,.92));
+  border: 1px solid var(--line);
+  transition: border-color .15s;
+}
+
+.pv-card:hover { border-color: var(--accent); }
+
+.pv-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pv-card__name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pv-card__type {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(118,169,255,.1);
+  color: var(--accent);
+  border: 1px solid rgba(118,169,255,.25);
+}
+
+.pv-card__url {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+.pv-card__badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.pv-pill {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(118,169,255,.08);
+  color: var(--text-soft);
+  border: 1px solid rgba(118,169,255,.15);
+}
+
+.pv-pill--ok { color: #4fd69a; border-color: rgba(79,214,154,.3); background: rgba(79,214,154,.08); }
+.pv-pill--off { color: #ef8585; border-color: rgba(239,133,133,.3); background: rgba(239,133,133,.08); }
+
+.pv-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+
+.pv-model-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  padding: 3px 0;
+}
+
+.pv-model-row__id {
+  font-family: ui-monospace, monospace;
+  color: var(--text);
+}
+
+.pv-model-row__meta {
+  color: var(--muted);
+}
+
+.pv-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--panel-2);
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.pv-row__key {
+  font-family: ui-monospace, monospace;
+  color: var(--accent);
+  min-width: 140px;
+}
+
+.pv-row__val {
+  flex: 1;
+  color: var(--text-soft);
+  word-break: break-all;
+}
+
+.pv-routing {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pv-route {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+
+.pv-route__role {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.pv-route__chain {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pv-route__step {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(118,169,255,.08);
+  color: var(--text-soft);
+  border: 1px solid rgba(118,169,255,.2);
+  font-family: ui-monospace, monospace;
+}
+
+.pv-route__step--primary {
+  background: rgba(118,169,255,.18);
+  color: var(--accent);
+  border-color: rgba(118,169,255,.4);
+}
+
+.pv-route__arrow {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.pv-health-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--panel-2);
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.pv-health-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.pv-health-dot--healthy { background: #4fd69a; box-shadow: 0 0 6px #4fd69a; }
+.pv-health-dot--unhealthy { background: #ef8585; box-shadow: 0 0 6px #ef8585; }
+.pv-health-dot--unknown { background: var(--muted); }

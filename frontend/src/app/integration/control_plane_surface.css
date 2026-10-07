@@ -1,0 +1,54 @@
+.control-plane-surface {
+  min-height: 100%;
+}
+
+.plugin-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: 0 2px;
+}
+
+.plugin-bar > div {
+  display: grid;
+  gap: 5px;
+}
+
+.plugin-tabs {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.plugin-tab {
+  padding: 8px 11px;
+  border: 1px solid #27374a;
+  border-radius: 8px;
+  background: #0d1520;
+  color: #718096;
+  cursor: pointer;
+}
+
+.plugin-tab:hover {
+  color: #c8d7e8;
+}
+
+.plugin-tab-active {
+  border-color: #3a5878;
+  background: #152337;
+  color: #e3edf8;
+}
+
+.plugin-content {
+  min-width: 0;
+}
+
+.integration-error {
+  padding: 20px;
+  border: 1px solid #5c3438;
+  border-radius: 10px;
+  background: #211316;
+  color: #e2a7ae;
+}

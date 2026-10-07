@@ -1,0 +1,155 @@
+.project-manager {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.project-manager-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.project-manager-heading h2 {
+  margin: 8px 0 6px;
+  font-size: 30px;
+}
+
+.project-manager-heading p {
+  margin: 0;
+  color: #7f8da2;
+  font-size: 14px;
+}
+
+.feature-state {
+  padding: 7px 10px;
+  border: 1px solid #293b52;
+  border-radius: 999px;
+  color: #8fb8dd;
+  font-size: 11px;
+}
+
+.project-manager-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.feature-panel {
+  display: grid;
+  gap: 15px;
+  padding: 22px;
+  border: 1px solid #202d40;
+  border-radius: 14px;
+  background: #0c121c;
+}
+
+.feature-panel header {
+  display: grid;
+  gap: 5px;
+  padding-bottom: 5px;
+}
+
+.feature-panel header span {
+  color: #69788d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.feature-panel header strong {
+  font-size: 18px;
+}
+
+.feature-panel label {
+  display: grid;
+  gap: 7px;
+  color: #8492a7;
+  font-size: 11px;
+}
+
+.feature-panel input {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid #263449;
+  border-radius: 9px;
+  outline: none;
+  background: #0a1018;
+  color: #e8edf5;
+}
+
+.feature-panel input:focus {
+  border-color: #3d658d;
+}
+
+.feature-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.feature-actions button {
+  padding: 9px 12px;
+  border: 1px solid #30465e;
+  border-radius: 8px;
+  background: #132033;
+  color: #dbe7f5;
+  cursor: pointer;
+}
+
+.feature-actions button:hover:not(:disabled) {
+  background: #1a2d45;
+}
+
+.feature-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.feature-record {
+  display: grid;
+  gap: 6px;
+  padding-top: 9px;
+  border-top: 1px solid #202b3a;
+  color: #738197;
+  font-size: 11px;
+}
+
+.feature-error,
+.feature-message {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.feature-error {
+  border: 1px solid #593136;
+  background: #211116;
+  color: #e7aab1;
+}
+
+.feature-message {
+  border: 1px solid #293b52;
+  background: #101a28;
+  color: #8eafd0;
+}
+
+@media (max-width: 900px) {
+  .project-manager-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-manager-heading {
+    display: grid;
+  }
+
+  .feature-panel {
+    padding: 16px;
+  }
+}

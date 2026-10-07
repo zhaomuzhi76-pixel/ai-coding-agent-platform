@@ -1,0 +1,213 @@
+.product-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--ui-line-soft);
+  background: rgba(7, 11, 17, .82);
+  backdrop-filter: blur(18px);
+}
+
+.product-header h1 {
+  margin: 3px 0 0;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.session-pill,
+.feature-state,
+.intelligence-state {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  color: var(--ui-text-2);
+  background: #0c1420;
+  font-size: 12px;
+}
+
+.session-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.locale-toggle {
+  min-width: 38px;
+  min-height: 34px;
+}
+
+.product-content {
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  padding: 28px 30px 44px;
+}
+
+.project-manager,
+.code-intelligence {
+  display: grid;
+  gap: 20px;
+}
+
+.agent-heading,
+.project-manager-heading,
+.code-intelligence-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.agent-heading h2,
+.project-manager-heading h2,
+.code-intelligence-heading h2 {
+  margin: 5px 0 6px;
+  font-size: 28px;
+  letter-spacing: -.035em;
+}
+
+.agent-heading p,
+.project-manager-heading p,
+.code-intelligence-heading p {
+  margin: 0;
+  color: var(--ui-text-2);
+  line-height: 1.55;
+}
+
+.agent-grid,
+.project-manager-grid,
+.code-intelligence-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.agent-panel,
+.feature-panel,
+.intelligence-form,
+.intelligence-result,
+.execution-timeline {
+  min-width: 0;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius);
+  background:
+    linear-gradient(180deg, rgba(18, 27, 40, .94), rgba(10, 16, 25, .94));
+  box-shadow: var(--ui-shadow);
+}
+
+.agent-panel,
+.feature-panel,
+.intelligence-form,
+.intelligence-result {
+  padding: 18px;
+}
+
+.agent-panel header,
+.feature-panel header,
+.intelligence-result header,
+.execution-timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.agent-panel header span,
+.feature-panel header span,
+.intelligence-result header span {
+  color: var(--ui-text-3);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.agent-panel header strong,
+.feature-panel header strong,
+.intelligence-result header strong {
+  font-size: 13px;
+}
+
+.agent-panel label,
+.feature-panel label,
+.intelligence-form label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 13px;
+  color: var(--ui-text-2);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.agent-actions,
+.feature-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.agent-actions button,
+.feature-actions button,
+.intelligence-form button {
+  min-height: 40px;
+  padding: 0 14px;
+}
+
+.agent-actions button:last-child,
+.intelligence-form button {
+  border-color: rgba(90, 167, 255, .38);
+  background: linear-gradient(180deg, #2d78d8, #245eaa);
+}
+
+.agent-status,
+.feature-record,
+.intelligence-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.agent-status span,
+.feature-record span,
+.intelligence-result-meta span {
+  padding: 7px 9px;
+  border: 1px solid var(--ui-line-soft);
+  border-radius: 8px;
+  color: var(--ui-text-3);
+  background: #0b131e;
+  font-size: 11px;
+}
+
+.agent-output,
+.intelligence-result pre,
+.agent-event-list pre,
+
+.execution-timeline-item pre {
+  margin: 0;
+  padding: 14px;
+  overflow: auto;
+  border: 1px solid var(--ui-line-soft);
+  border-radius: var(--ui-radius-sm);
+  color: #cfd8e7;
+  background: #070c13;
+  font: 12px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}

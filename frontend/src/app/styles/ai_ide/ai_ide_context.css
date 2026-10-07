@@ -1,0 +1,14 @@
+.ide-context {
+  height:100%;
+  background:var(--ide-panel);
+}
+
+.ide-context-section {
+  padding:12px;
+  border-bottom:1px solid var(--ide-border);
+}
+
+.ide-context-title {
+  color:var(--ide-muted);
+  font-size:12px;
+}

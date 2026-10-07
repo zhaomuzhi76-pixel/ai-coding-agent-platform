@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "providers": {
+    "ollama-local": {
+      "verified_at": 1790441134.1241484,
+      "latency_ms": 0.0,
+      "models": [
+        "qwen2.5:0.5b",
+        "qwen3:8b",
+        "qwen2.5-coder:7b"
+      ],
+      "manual": true
+    },
+    "qwen3.8-max": {
+      "verified_at": 1790337055.237719,
+      "latency_ms": 0.0,
+      "models": [
+        "qwen3.8-max"
+      ],
+      "manual": true
+    },
+    "glm-5.3": {
+      "verified_at": 1790337950.444107,
+      "latency_ms": 0.0,
+      "models": []
+    }
+  }
+}

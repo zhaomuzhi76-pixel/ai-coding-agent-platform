@@ -1,0 +1,393 @@
+.platform-workbench {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  height: 100%;
+  overflow: auto;
+  color: var(--ide-text);
+  background:
+    radial-gradient(1200px 600px at 0% 0%, #131c28 0%, transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, #16202e 0%, transparent 55%),
+    var(--ide-bg);
+}
+
+.platform-workbench__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.platform-workbench__title h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.platform-workbench__title small {
+  color: var(--ide-muted);
+  font-size: 12px;
+}
+
+/* ─── KPI row ───────────────────────────── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kpi-card {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--ide-panel);
+  border: 1px solid var(--ide-border);
+}
+
+.kpi-card__label {
+  font-size: 12px;
+  color: var(--ide-muted);
+  margin-bottom: 6px;
+}
+
+.kpi-card__value {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.kpi-card__hint {
+  font-size: 11px;
+  color: var(--ide-muted);
+  margin-top: 4px;
+}
+
+/* ─── pipeline ──────────────────────────── */
+.pipeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--ide-panel);
+  border: 1px solid var(--ide-border);
+  border-radius: 10px;
+}
+
+.pipeline__step {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ide-muted);
+}
+
+.pipeline__dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  background: #1b2634;
+  border: 1px solid var(--ide-border);
+}
+
+.pipeline__step--done .pipeline__dot {
+  background: var(--ide-success);
+  color: #04120a;
+  border-color: transparent;
+}
+
+.pipeline__step--active .pipeline__dot {
+  background: var(--ide-accent);
+  color: #04101e;
+  border-color: transparent;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.pipeline__step--done,
+.pipeline__step--active {
+  color: var(--ide-text);
+}
+
+.pipeline__sep {
+  flex: 0 0 24px;
+  height: 1px;
+  background: var(--ide-border);
+}
+
+/* ─── session bar ───────────────────────── */
+.session-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--ide-panel);
+  border: 1px solid var(--ide-border);
+  border-radius: 10px;
+}
+
+.session-bar__field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ide-muted);
+}
+
+.session-bar__field strong {
+  color: var(--ide-text);
+  font-weight: 500;
+}
+
+.session-bar__spacer {
+  flex: 1;
+}
+
+/* ─── pickers ──────────────────────────── */
+.picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #0e1622;
+  border: 1px solid var(--ide-border);
+  font-size: 12px;
+}
+
+.picker select {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ide-text);
+  font-size: 12px;
+  padding-right: 4px;
+  outline: none;
+}
+
+.picker select option {
+  background: #0e1622;
+}
+
+/* ─── proposal grid ─────────────────────── */
+.proposal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 16px;
+  min-height: 320px;
+}
+
+.panel {
+  background: var(--ide-panel);
+  border: 1px solid var(--ide-border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ide-border);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.panel__body {
+  padding: 14px 16px;
+  overflow: auto;
+  flex: 1;
+}
+
+/* ─── proposal card ────────────────────── */
+.proposal-card {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--ide-border);
+  background: var(--ide-panel-soft);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.proposal-card:hover { border-color: var(--ide-accent); }
+.proposal-card--active { border-color: var(--ide-accent); }
+
+.proposal-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.proposal-card__id {
+  font-size: 11px;
+  color: var(--ide-muted);
+  font-family: monospace;
+}
+
+.proposal-card__task {
+  font-size: 13px;
+  color: var(--ide-text);
+  margin-bottom: 6px;
+}
+
+.proposal-card__meta {
+  font-size: 11px;
+  color: var(--ide-muted);
+  display: flex;
+  gap: 12px;
+}
+
+/* ─── status badge ─────────────────────── */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 999px;
+  border: 1px solid var(--ide-border);
+}
+
+.status--pending { color: #60a5fa; border-color: #1e3a8a; background: #0d1a2c; }
+.status--approved { color: #22c55e; border-color: #14532d; background: #0c1a12; }
+.status--applied  { color: #10b981; border-color: #064e3b; background: #08201a; }
+.status--rejected { color: #ef4444; border-color: #7f1d1d; background: #1c0c0c; }
+.status--failed   { color: #f97316; border-color: #7c2d12; background: #1c1108; }
+.status--rolled_back { color: #eab308; border-color: #713f12; background: #1c1408; }
+
+/* ─── proposal detail / drawer ─────────── */
+.change-item {
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--ide-border);
+  overflow: hidden;
+}
+
+.change-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #0e1622;
+  font-size: 12px;
+}
+
+.change-item__file { color: var(--ide-text); font-family: monospace; }
+.change-item__kind { color: var(--ide-muted); }
+
+.change-item__text {
+  margin: 0;
+  padding: 12px;
+  background: #0b1119;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #cbd5e1;
+}
+
+/* ─── task composer ────────────────────── */
+.task-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-composer textarea {
+  width: 100%;
+  min-height: 70px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--ide-border);
+  background: #0b1119;
+  color: var(--ide-text);
+  font-size: 13px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+}
+
+.task-composer textarea:focus {
+  border-color: var(--ide-accent);
+}
+
+.task-composer input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--ide-border);
+  background: #0b1119;
+  color: var(--ide-text);
+  font-size: 13px;
+  outline: none;
+}
+
+.task-composer input:focus {
+  border-color: var(--ide-accent);
+}
+
+.task-composer__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: 1px solid var(--ide-border);
+  background: #16202e;
+  color: var(--ide-text);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn:hover { border-color: var(--ide-accent); }
+
+.btn--primary {
+  background: var(--ide-accent);
+  color: #04101e;
+  border-color: transparent;
+}
+
+.btn--primary:hover { filter: brightness(1.1); }
+
+.btn--danger {
+  background: #7f1d1d;
+  border-color: #7f1d1d;
+  color: #fecaca;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── error banner ─────────────────────── */
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #1c0c0c;
+  border: 1px solid #7f1d1d;
+  color: #fecaca;
+  font-size: 12px;
+}
+
+/* ─── status text ──────────────────────── */
+.muted { color: var(--ide-muted); font-size: 12px; }
+.mono { font-family: var(--font-mono, monospace); }

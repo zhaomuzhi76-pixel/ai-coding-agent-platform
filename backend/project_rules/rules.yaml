@@ -1,0 +1,68 @@
+version: 2
+meta:
+  owner: "engineering"
+  enforced_by: "backend.project_rules.rule_runner"
+  discovery: "backend.project_rules.discovery"
+
+# 说明：
+#   - 所有路径参数留空 → checker 通过 discovery 动态探测
+#   - 用户需显式覆盖时，才在 args 里填写
+#   - 禁止硬编码 backend/application 之类的路径
+
+rules:
+  - id: file_size_max_230
+    severity: error
+    category: file
+    description: 单文件不得超过配置行数
+    args:
+      # max_lines 缺省 → checker 从 DEFAULT_MAX_LINES 读
+      skip_patterns: []      # 空 = 用 checker 内置的通用忽略规则
+      extensions: []         # 空 = 自动探测（discovery.detect_extensions）
+
+  - id: no_duplicate_responsibility
+    severity: error
+    category: architecture
+    description: 职责重复（跨文件同名符号）
+    args:
+      scan_roots: []         # 空 = 自动探测（discovery.detect_scan_roots）
+      extensions: []         # 空 = 自动探测
+
+  - id: plugin_pattern
+    severity: error
+    category: architecture
+    description: 工业级新能力必须通过插件 + 新增文件实现
+    args: {}
+
+  - id: tmpfs_only
+    severity: error
+    category: test
+    description: 测试必须用 tmpfs
+    args:
+      allow_paths: ["/dev/shm", "/tmp"]
+      # forbid_paths 空 → 用 checker 内置的黑名单
+
+  - id: layer_purity
+    severity: error
+    category: architecture
+    description: 各层只能依赖相邻下层
+    args:
+      layers: {}             # 空 = 自动探测（discovery.detect_layers）
+
+  - id: no_exit
+    severity: error
+    category: style
+    description: 库函数内禁止 sys.exit / SystemExit
+    args: {}
+
+  - id: style_reference
+    severity: warn
+    category: style
+    description: 参考 codex / claude-code / aliyun / dify 工业级风格
+    args: {}
+
+  - id: debt_ratchet
+    severity: error
+    category: process
+    description: 技术债 ratchet
+    args:
+      baseline_path: ".layer-review/debt-baseline.json"

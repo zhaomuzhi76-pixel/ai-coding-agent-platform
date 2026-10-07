@@ -1,0 +1,119 @@
+/* AI IDE 文件树 —— 工业级样式（对齐 Claude Code / Codex）
+ * 关键：每行固定 28px，flex 居中，长名 ellipsis。
+ */
+.codex-file-tree {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #c9d4e5;
+  background: transparent;
+}
+
+.codex-tree-title {
+  padding: 10px 14px 6px;
+  color: #7f8da2;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* 滚动容器 */
+.codex-tree-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+.codex-tree-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.codex-tree-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+.codex-tree-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* 行基类 —— 所有行统一 28px 高 */
+.codex-tree-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 28px;
+  box-sizing: border-box;
+  padding: 0 12px 0 0;
+  border: 0;
+  background: transparent;
+  color: #c9d4e5;
+  font-size: 13px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+.codex-tree-row:hover {
+  background: rgba(118, 169, 255, 0.08);
+}
+.codex-tree-row.active {
+  background: rgba(118, 169, 255, 0.15);
+  color: #ffffff;
+}
+
+/* 展开箭头 */
+.codex-tree-arrow {
+  flex-shrink: 0;
+  width: 12px;
+  text-align: center;
+  color: #7f8da2;
+  font-size: 9px;
+}
+
+/* 文件/文件夹图标 */
+.codex-tree-icon {
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* 名称 —— 长名 ellipsis */
+.codex-tree-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 兼容旧类名（外部可能引用） */
+.codex-file,
+.codex-directory {
+  composes: codex-tree-row;
+}
+.codex-file:hover,
+.codex-directory:hover {
+  background: rgba(118, 169, 255, 0.08);
+}
+.codex-file.active {
+  background: rgba(118, 169, 255, 0.15);
+  color: #ffffff;
+}
+
+/* 空状态 */
+.codex-tree-empty,
+[data-testid="workspace-file-tree-empty"] {
+  padding: 14px;
+  color: #68778c;
+  font-size: 12px;
+}

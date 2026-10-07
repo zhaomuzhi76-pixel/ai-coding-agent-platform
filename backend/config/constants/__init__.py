@@ -1,0 +1,14 @@
+"""配置常量（模块化）。"""
+from backend.config.constants.endpoints import (
+    ALL_INTERFACES, BACKEND_PORT, LOCALHOST,
+    MONGODB_URL, OLLAMA_PORT, OLLAMA_URL,
+    QDRANT_URL, REDIS_URL, RERANKER_PORT, RERANKER_URL,
+    SD_URL,
+)
+
+__all__ = [
+    "ALL_INTERFACES", "BACKEND_PORT", "LOCALHOST",
+    "MONGODB_URL", "OLLAMA_PORT", "OLLAMA_URL",
+    "QDRANT_URL", "REDIS_URL", "RERANKER_PORT", "RERANKER_URL",
+    "SD_URL",
+]

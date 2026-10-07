@@ -1,0 +1,486 @@
+.agent-composer{
+  height:100%;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  background:#0b111b;
+  color:#d9e3ef;
+}
+.agent-composer__header{
+  min-height:40px;
+  flex:0 0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:0 14px;
+  border-bottom:1px solid #202b3a;
+  background:#0d141f;
+}
+.agent-composer__identity{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.agent-composer__mark{
+  display:grid;
+  place-items:center;
+  width:20px;
+  height:20px;
+  border:1px solid #334966;
+  border-radius:5px;
+  background:#111d2b;
+  color:#b3cef0;
+  font-size:10px;
+}
+.agent-composer__identity strong{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.05em;
+}
+.agent-composer__status,
+.agent-composer__hint{
+  color:#68778b;
+  font-size:10px;
+}
+.agent-composer__status{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.agent-composer__hint{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+.agent-composer__editor{
+  flex:1 1 auto;
+  min-height:0;
+  padding:10px 14px 8px;
+}
+.agent-composer textarea{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  box-sizing:border-box;
+  resize:none;
+  padding:14px 15px;
+  border:1px solid #2b3b51;
+  border-radius:10px;
+  background:#080d14;
+  color:#e8f0fa;
+  outline:none;
+  font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.agent-composer textarea::placeholder{
+  color:#58687b;
+}
+.agent-composer textarea:hover:not(:disabled){
+  border-color:#344961;
+}
+.agent-composer textarea:focus{
+  border-color:#52719a;
+  box-shadow:0 0 0 1px #263f5e,0 8px 24px rgb(0 0 0 / 18%);
+}
+.agent-composer textarea:disabled{
+  opacity:.72;
+  cursor:default;
+}
+.agent-composer__footer{
+  min-height:58px;
+  flex:0 0 58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 14px 10px;
+  border-top:1px solid #202b3a;
+  background:#0d141f;
+}
+.agent-composer__context{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  overflow:hidden;
+}
+.agent-composer__chip{
+  min-width:0;
+  max-width:190px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 8px;
+  border:1px solid #202e41;
+  border-radius:6px;
+  background:#101925;
+  color:#718096;
+  font-size:10px;
+}
+.agent-composer__chip strong{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#aebdce;
+  font-weight:500;
+}
+.agent-composer__stats{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#68778b;
+  font-size:10px;
+  white-space:nowrap;
+}
+.agent-composer__send{
+  flex:0 0 auto;
+  min-width:96px;
+  height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid #587ca9;
+  border-radius:8px;
+  padding:0 14px;
+  background:#1a3556;
+  color:#f0f6ff;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:700;
+  box-shadow:0 3px 10px rgb(0 0 0 / 18%),inset 0 1px 0 rgb(255 255 255 / 6%);
+}
+.agent-composer__send:hover:not(:disabled){
+  background:#214366;
+  border-color:#7297c5;
+}
+.agent-composer__send:active:not(:disabled){
+  transform:translateY(1px);
+}
+.agent-composer__send:focus-visible{
+  outline:2px solid #83a9d6;
+  outline-offset:2px;
+}
+.agent-composer__send:disabled{
+  opacity:.38;
+  cursor:not-allowed;
+}
+.agent-composer__send-icon{
+  display:grid;
+  place-items:center;
+  width:21px;
+  height:21px;
+  border:1px solid #668bb8;
+  border-radius:5px;
+  font-size:13px;
+  line-height:1;
+}
+.agent-composer__error{
+  flex:0 0 auto;
+  padding:7px 14px 9px;
+  border-top:1px solid #412832;
+  background:#211318;
+  color:#e49a9a;
+  font-size:11px;
+}
+@media (max-width:900px){
+  .agent-composer__chip{max-width:150px}
+  .agent-composer__stats{display:none}
+}
+@media (max-width:640px){
+  .agent-composer__hint,
+  .agent-composer__chip:first-child{display:none}
+  .agent-composer__send{min-width:84px}
+}
+
+
+/* ===== 模型下拉：与 chip 底色拉开对比 ===== */
+.agent-composer__chip select {
+  background: #1c2b3d !important;
+  color: #e8f0fa !important;
+  border: 1px solid #334966 !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  margin-left: 4px;
+  font-size: 11px !important;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.agent-composer__chip select:hover {
+  background: #223349 !important;
+  border-color: #4a6a8a !important;
+}
+.agent-composer__chip select:focus {
+  border-color: #7aa2f7 !important;
+  box-shadow: 0 0 0 1px #263f5e;
+}
+.agent-composer__chip select option {
+  background: #1c2b3d;
+  color: #e8f0fa;
+}
+
+/* ===== Model chip：明显深色实心块，一眼看出可交互 ===== */
+.agent-composer__chip--model {
+  background: #16212f;
+  border-color: #3a5170;
+  padding: 4px 6px 4px 10px;
+}
+.agent-composer__chip--model > span:first-child {
+  color: #7aa2f7;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.agent-composer__chip--model select {
+  background: #0b111b !important;
+  color: #e8f0fa !important;
+  border: 1px solid #3a5170 !important;
+  border-radius: 4px !important;
+  padding: 3px 24px 3px 8px !important;
+  font-size: 11px !important;
+  font-family: inherit;
+  max-width: 200px;
+  min-width: 0;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #7aa2f7 50%),
+                    linear-gradient(135deg, #7aa2f7 50%, transparent 50%) !important;
+  background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50% !important;
+  background-size: 5px 5px, 5px 5px !important;
+  background-repeat: no-repeat !important;
+}
+.agent-composer__chip--model select:hover {
+  background-color: #121b27 !important;
+  border-color: #5a82c0 !important;
+}
+.agent-composer__chip--model select:focus {
+  border-color: #7aa2f7 !important;
+  box-shadow: 0 0 0 2px rgba(122, 162, 247, 0.35) !important;
+}
+.agent-composer__chip--model select option {
+  background: #0b111b;
+  color: #e8f0fa;
+}
+
+/* ===== 状态区：圆点 + 文字，视觉分离 ===== */
+.agent-composer__stats {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #0f1823;
+  border: 1px solid #1e2a3a;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.agent-composer__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  transition: background 200ms, box-shadow 200ms;
+}
+.agent-composer__status-dot.is-on {
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.85);
+}
+.agent-composer__status-dot.is-off {
+  background: #556070;
+}
+
+.agent-composer__stat {
+  color: #a8b8cd;
+  font-weight: 500;
+}
+.agent-composer__stat--dim {
+  color: #5a6a7d;
+  font-variant-numeric: tabular-nums;
+}
+.agent-composer__stat-sep {
+  color: #2b3b51;
+  margin: 0 2px;
+}
+
+/* Model chip 内部紧凑化 */
+.agent-composer__chip--model {
+  padding: 3px 4px 3px 8px;
+}
+.agent-composer__chip--model select {
+  max-width: 140px !important;
+  font-size: 11px !important;
+}
+
+/* ===== 让模型名完整可见 ===== */
+.agent-composer__chip--model {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: none;
+}
+.agent-composer__chip--model select {
+  max-width: 240px !important;
+  width: auto !important;
+  font-size: 11px !important;
+  text-overflow: clip;
+}
+
+/* Workspace chip：优先收缩 */
+.agent-composer__chip:not(.agent-composer__chip--model) {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 140px;
+}
+.agent-composer__chip:not(.agent-composer__chip--model) strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 状态区：收紧 */
+.agent-composer__stats {
+  padding: 3px 8px;
+  font-size: 10.5px;
+  gap: 5px;
+}
+.agent-composer__stat--dim {
+  display: none;
+}
+@media (min-width: 1100px) {
+  .agent-composer__stat--dim {
+    display: inline;
+  }
+}
+
+/* context 允许换行时优先保 Model */
+.agent-composer__context {
+  gap: 6px;
+}
+
+/* ===== 强制模型名完整显示 ===== */
+.agent-composer__footer {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+.agent-composer__context {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  min-width: 0;
+}
+
+/* Model chip：不收缩，内容决定宽度 */
+.agent-composer__chip--model {
+  flex: 0 0 auto;
+  max-width: none !important;
+}
+
+.agent-composer__chip--model select {
+  width: auto !important;
+  min-width: 220px !important;
+  max-width: none !important;
+  text-overflow: clip;
+}
+
+/* Workspace chip：可以收窄让位 */
+.agent-composer__chip:not(.agent-composer__chip--model) {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 180px;
+}
+
+/* 状态区：可以整块推到下一行 */
+.agent-composer__stats {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+/* ===== Header 模型徽章：明显、常驻、一眼可读 ===== */
+.agent-composer__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.agent-composer__model-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #0b111b;
+  border: 1px solid #3a5170;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+  max-width: 320px;
+}
+
+.agent-composer__model-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.agent-composer__model-badge[data-provider="ollama"] .agent-composer__model-dot {
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.8);
+}
+.agent-composer__model-badge[data-provider="dashscope"] .agent-composer__model-dot,
+.agent-composer__model-badge[data-provider="openai_compatible"] .agent-composer__model-dot {
+  background: #7aa2f7;
+  box-shadow: 0 0 6px rgba(122, 162, 247, 0.8);
+}
+.agent-composer__model-badge[data-provider="none"] .agent-composer__model-dot {
+  background: #556070;
+}
+
+.agent-composer__model-name {
+  color: #e8f0fa;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.agent-composer__model-provider {
+  color: #7aa2f7;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  padding-left: 4px;
+  border-left: 1px solid #2b3b51;
+}
+
+.agent-composer__hint {
+  color: #68778b;
+  font-size: 10px;
+}
+
+/* 每个 chip 不许收缩（防重叠核心） */
+.agent-composer__chip,
+.agent-composer__context > div,
+.agent-composer__context > span {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+/* 领域标签容器可以换行 */
+.agent-composer__context > div[style*="flex-wrap"] {
+  flex-wrap: wrap !important;
+  row-gap: 4px !important;
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+/* 领域标签按钮不收缩、不压缩内边距 */
+.agent-composer__context button {
+  flex-shrink: 0 !important;
+  white-space: nowrap;
+}

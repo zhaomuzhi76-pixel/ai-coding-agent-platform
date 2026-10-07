@@ -1,0 +1,118 @@
+.diff-review {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #0b111b;
+  color: #d9e3ef;
+}
+
+.diff-review__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 0 14px;
+  border-bottom: 1px solid #202b3a;
+}
+
+.diff-review__header div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.diff-review__header span,
+.diff-review__empty {
+  color: #8190a5;
+  font-size: 12px;
+}
+
+.diff-review__status {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.diff-review__body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 12px;
+}
+
+.diff-review__empty {
+  padding: 20px;
+  text-align: center;
+}
+
+.diff-review__change {
+  margin-bottom: 10px;
+  border: 1px solid #202b3a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.diff-review__change header {
+  padding: 8px 10px;
+  background: #101827;
+}
+
+.diff-review__change pre {
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  border-top: 1px solid #202b3a;
+  white-space: pre-wrap;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+}
+
+.diff-review__actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid #202b3a;
+}
+
+.diff-review__actions button {
+  padding: 7px 12px;
+  border: 1px solid #30435d;
+  border-radius: 7px;
+  background: #15243a;
+  color: #d9e3ef;
+  cursor: pointer;
+}
+
+.diff-review__actions button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.diff-review__change > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.diff-review__change > header button {
+  flex: 0 0 auto;
+}
+
+/* ===== 增强：右侧 Diff Review 行级高亮 ===== */
+.diff-review__line {
+  border-left: 3px solid transparent;
+}
+.diff-review__line--add {
+  background: rgba(46,160,67,.22);
+  border-left-color: #3fb950;
+}
+.diff-review__line--del {
+  background: rgba(248,81,73,.22);
+  border-left-color: #f85149;
+}
+.diff-review__line--add .diff-review__text { color: #aff5b4; }
+.diff-review__line--del .diff-review__text { color: #ffdcd7; }
+.diff-review__line--add .diff-review__gutter { color: #56d364; }
+.diff-review__line--del .diff-review__gutter { color: #f85149; }
+.diff-review__mark { font-weight: 700; }

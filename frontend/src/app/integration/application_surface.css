@@ -1,0 +1,14 @@
+.application-surface {
+  min-height: 100vh;
+  background: #080c13;
+}
+
+.application-surface .control-plane-surface {
+  min-height: 100vh;
+}
+
+@media (max-width: 680px) {
+  .application-surface {
+    min-height: 100vh;
+  }
+}

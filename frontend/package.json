@@ -1,0 +1,79 @@
+{
+  "name": "biancheng-ai-agent",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "desktop": "electron desktop/electron/main.cjs",
+    "build:win:customer": "cross-env VITE_DEFAULT_BACKEND_URL=https://gateway.customer.local npm run build && electron-builder --win --x64",
+    "dev:electron": "wait-on http://localhost:4173 && electron desktop/electron/main.cjs",
+    "dev:vite": "vite"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "cross-env": "^7.0.3",
+    "electron": "^44.4.4",
+    "electron-builder": "^26.15.3",
+    "happy-dom": "^20.14.5",
+    "jsdom": "^30.1.1",
+    "oxlint": "^1.81.0",
+    "playwright": "^1.63.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.0",
+    "wait-on": "^9.1.0"
+  },
+  "productName": "BianCheng AI Agent",
+  "description": "BianCheng AI Agent Desktop",
+  "author": "BianCheng",
+  "main": "desktop/electron/main.cjs",
+  "build": {
+    "appId": "com.biancheng.aiagent",
+    "productName": "BianCheng AI Agent",
+    "directories": {
+      "output": "release/${version}",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "desktop/electron/**/*",
+      "package.json",
+      "!**/*.ts",
+      "!**/*.map",
+      "!src/**/*",
+      "!node_modules/.cache/**/*",
+      "!node_modules/.vite/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "asar": true,
+    "npmRebuild": false
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-web-links": "^0.12.0",
+    "@xterm/xterm": "^6.0.0"
+  }
+}

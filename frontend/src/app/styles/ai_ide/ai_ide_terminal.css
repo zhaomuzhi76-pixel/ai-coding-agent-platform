@@ -1,0 +1,7 @@
+.ide-terminal {
+  background:#080b10;
+  font-family:monospace;
+  color:var(--ide-text);
+  padding:12px;
+  height:100%;
+}

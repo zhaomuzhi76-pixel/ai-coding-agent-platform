@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.3.0",
+  "basePath": "/api/model-registry",
+  "endpoints": {
+    "listProviders": {
+      "method": "GET",
+      "path": "/api/model-registry/providers"
+    },
+    "createProvider": {
+      "method": "POST",
+      "path": "/api/model-registry/providers"
+    },
+    "listModels": {
+      "method": "GET",
+      "path": "/api/model-registry/providers/{id}/models"
+    },
+    "testProvider": {
+      "method": "POST",
+      "path": "/api/model-registry/providers/{id}/test"
+    },
+    "listRoles": {
+      "method": "GET",
+      "path": "/api/model-registry/roles"
+    },
+    "bindRole": {
+      "method": "POST",
+      "path": "/api/model-registry/roles"
+    },
+    "getKPI": {
+      "method": "GET",
+      "path": "/api/model-registry/kpi"
+    },
+    "listAllModels": {
+      "method": "GET",
+      "path": "/api/model-registry/models"
+    },
+    "updateProvider": {
+      "method": "PATCH",
+      "path": "/api/model-registry/providers/{id}"
+    },
+    "deleteProvider": {
+      "method": "DELETE",
+      "path": "/api/model-registry/providers/{id}"
+    },
+    "usageKPI": {
+      "method": "GET",
+      "path": "/api/model-registry/kpi/usage"
+    },
+    "exportConfig": {
+      "method": "GET",
+      "path": "/api/model-registry/config/export"
+    },
+    "exportYAML": {
+      "method": "GET",
+      "path": "/api/model-registry/config/export/yaml"
+    },
+    "importConfig": {
+      "method": "POST",
+      "path": "/api/model-registry/config/import"
+    },
+    "verifyProvider": {
+      "method": "POST",
+      "path": "/api/model-registry/providers/{id}/verify"
+    },
+    "verifiedModels": {
+      "method": "GET",
+      "path": "/api/model-registry/verified-models"
+    },
+    "providerKinds": {
+      "method": "GET",
+      "path": "/api/model-registry/provider-kinds"
+    }
+  },
+  "types": {
+    "ProviderCard": {
+      "id": "string",
+      "name": "string",
+      "kind": "local|cloud",
+      "base_url": "string",
+      "has_key": "boolean",
+      "enabled": "boolean",
+      "connected": "boolean",
+      "model_count": "number"
+    },
+    "ModelCard": {
+      "id": "string",
+      "display": "string",
+      "provider": "string",
+      "ctx": "number",
+      "cost_per_1k": "number",
+      "tags": "string[]"
+    },
+    "RoleCandidate": {
+      "value": "string",
+      "label": "string",
+      "group": "string"
+    },
+    "RoleCard": {
+      "role": "string",
+      "label": "string",
+      "primary": "string",
+      "primary_provider": "string",
+      "fallback": "string|null",
+      "ui": "select",
+      "candidates": "RoleCandidate[]"
+    },
+    "ProviderKindSpec": {
+      "value": "string",
+      "label": "string",
+      "category": "local|cloud",
+      "default_base_url": "string",
+      "needs_key": "boolean",
+      "protocol": "string"
+    },
+    "VerifiedModel": {
+      "id": "string",
+      "provider": "string",
+      "display_name": "string",
+      "label": "string"
+    },
+    "RegistryKPI": {
+      "providers_total": "number",
+      "providers_connected": "number",
+      "models_total": "number",
+      "roles_routed": "number"
+    }
+  }
+}

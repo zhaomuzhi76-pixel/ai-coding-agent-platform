@@ -1,0 +1,35 @@
+{
+  "layers": {
+    "foundation": {
+      "ok": true,
+      "path": "backend/rag/ingest/review/foundation",
+      "files": 8,
+      "findings": []
+    },
+    "storage": {
+      "ok": true,
+      "path": "backend/rag/ingest/review/storage",
+      "files": 7,
+      "findings": []
+    },
+    "review": {
+      "ok": true,
+      "path": "backend/rag/ingest/review/review",
+      "files": 11,
+      "findings": []
+    },
+    "api": {
+      "ok": true,
+      "path": "backend/rag/ingest/review/api",
+      "files": 8,
+      "findings": []
+    },
+    "orchestration": {
+      "ok": true,
+      "path": "backend/rag/ingest/review/orchestration",
+      "files": 8,
+      "findings": []
+    }
+  },
+  "ok": true
+}

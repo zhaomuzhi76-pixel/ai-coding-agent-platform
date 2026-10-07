@@ -1,0 +1,48 @@
+.ide-panel,
+.ide-agent-message,
+.ide-execution-item {
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    transform .15s ease;
+}
+
+.ide-panel:hover {
+  border-color:var(--ide-accent);
+}
+
+.ide-panel-active {
+  border-color:var(--ide-accent);
+  background:var(--ide-panel-soft);
+}
+
+.ide-item-selected {
+  background:var(--ide-panel-soft);
+}
+
+.ide-agent-streaming {
+  border-left:3px solid var(--ide-accent);
+}
+
+.ide-terminal-cursor {
+  display:inline-block;
+  width:8px;
+  height:16px;
+  background:var(--ide-text);
+}
+
+.ide-code-focus {
+  outline:1px solid var(--ide-accent);
+}
+
+.ide-scroll {
+  scrollbar-width:thin;
+}
+
+.ide-scroll::-webkit-scrollbar {
+  width:8px;
+}
+
+.ide-scroll::-webkit-scrollbar-thumb {
+  background:var(--ide-border);
+}

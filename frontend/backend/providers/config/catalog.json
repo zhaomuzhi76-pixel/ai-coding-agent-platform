@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "default_model_id": "locooperator-4b-8k",
+  "models": [
+    { "id": "locooperator-4b-8k", "provider": "dashscope",
+      "display_name": "LocoOperator 4B (8K)", "context_window": 8192 },
+    { "id": "qwen3-coder-plus",   "provider": "dashscope",
+      "display_name": "Qwen3 Coder Plus",      "context_window": 131072 },
+    { "id": "claude-sonnet-4-6",  "provider": "anthropic",
+      "display_name": "Claude Sonnet 4.6",     "context_window": 200000 }
+  ]
+}

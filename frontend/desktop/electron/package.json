@@ -1,0 +1,5 @@
+{
+  "name": "industrial-ai-desktop",
+  "private": true,
+  "main": "main.cjs"
+}

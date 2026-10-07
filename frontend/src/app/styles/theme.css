@@ -1,0 +1,309 @@
+/* 主题变量：以 data-theme 属性切换 */
+
+:root[data-theme="dark"] {
+  --bg: #070b11;
+  --bg-raised: #0a1018;
+  --panel: #0d141e;
+  --panel-2: #111a25;
+  --panel-3: #16212e;
+  --line: #202c3b;
+  --line-strong: #334257;
+  --text: #e7edf6;
+  --text-soft: #b4c0d0;
+  --muted: #77869a;
+  --accent: #76a9ff;
+  --accent-soft: rgba(118, 169, 255, .12);
+  --success: #4fd69a;
+  --warning: #e3b86d;
+  --danger: #ef8585;
+  --shadow: 0 18px 50px rgba(0, 0, 0, .24);
+  color: var(--text);
+  background: var(--bg);
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f7fa;
+  --bg-raised: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f0f3f8;
+  --panel-3: #e6ebf2;
+  --line: #d7dee8;
+  --line-strong: #b8c2d1;
+  --text: #1a1f2b;
+  --text-soft: #4a5568;
+  --muted: #7a8698;
+  --accent: #1677ff;
+  --accent-soft: rgba(22, 119, 255, .1);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --shadow: 0 4px 16px rgba(0, 0, 0, .06);
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* 亮色下覆盖内联深色背景 */
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(
+      circle at 72% -12%,
+      rgba(22, 119, 255, .06),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 12% 100%,
+      rgba(22, 163, 74, .04),
+      transparent 28%
+    ),
+    var(--bg);
+}
+
+:root[data-theme="light"] .global-nav {
+  background: linear-gradient(180deg, #ffffff, #f5f7fa);
+}
+
+:root[data-theme="light"] .global-nav__logo {
+  color: #ffffff;
+}
+
+:root[data-theme="light"] .global-nav__tab--active {
+  background: rgba(22, 119, 255, .1);
+  border-color: rgba(22, 119, 255, .3);
+}
+
+:root[data-theme="light"] .ind-kpi,
+:root[data-theme="light"] .ind-card,
+:root[data-theme="light"] .model-card {
+  background: #ffffff;
+  border-color: var(--line);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .03);
+}
+
+:root[data-theme="light"] .ind-table thead th {
+  background: #f0f3f8;
+}
+
+:root[data-theme="light"] .ind-drawer,
+:root[data-theme="light"] .ind-drawer-mask {
+  background: var(--bg-raised);
+}
+
+:root[data-theme="light"] .ind-drawer-mask {
+  background: rgba(0, 0, 0, .3);
+}
+
+:root[data-theme="light"] .platform-workbench,
+:root[data-theme="light"] .models-view {
+  background:
+    radial-gradient(1200px 600px at 0% 0%,
+      rgba(22, 119, 255, .05), transparent 60%),
+    var(--bg);
+}
+
+:root[data-theme="light"] .change-item__text,
+:root[data-theme="light"] .task-composer textarea,
+:root[data-theme="light"] .task-composer input,
+:root[data-theme="light"] .models-search,
+:root[data-theme="light"] .models-select {
+  background: #f7f9fc;
+  color: var(--text);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.theme-toggle__icon { font-size: 13px; }
+
+
+
+
+
+/* 遮罩也提到最前，防止顶部导航可点 */
+
+
+
+
+
+
+
+
+
+
+/* [FIX] 加宽版抽屉：GPU 加速位移，不触发重排 */
+
+
+
+/* [DRAG] 顶部拖动把手 */
+.drawer-drag-handle {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  cursor: row-resize;
+  background: transparent;
+  transition: background .15s;
+  z-index: 10001;
+  touch-action: none;
+}
+.drawer-drag-handle:hover {
+  background: linear-gradient(90deg, transparent, #7aa2f7, transparent);
+}
+.drawer-drag-handle::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 3px;
+  transform: translateX(-50%);
+  width: 40px; height: 2px;
+  background: rgba(118,169,255,.4);
+  border-radius: 1px;
+}
+
+
+
+/* [TOGGLE] 顶部明显的展开按钮 */
+.drawer-toggle-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  margin: -6px -24px 10px -24px;
+  background: rgba(118,169,255,.06);
+  border-bottom: 1px solid rgba(118,169,255,.15);
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+}
+.drawer-toggle-bar:hover {
+  background: rgba(118,169,255,.15);
+}
+.drawer-toggle-bar__icon {
+  font-size: 16px;
+  color: #7aa2f7;
+}
+.drawer-toggle-bar__label {
+  font-size: 12px;
+  color: #7aa2f7;
+  font-weight: 500;
+}
+
+
+/* [PAGINATION] 分页控件 */
+.drawer-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 4px 0;
+  font-size: 12px;
+  color: #9a9aa0;
+}
+.drawer-pagination button {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid #2a2a2e;
+  background: transparent;
+  color: #e8e8ea;
+  cursor: pointer;
+  font-size: 12px;
+}
+.drawer-pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.drawer-pagination button:not(:disabled):hover {
+  border-color: #7aa2f7;
+  color: #7aa2f7;
+}
+.drawer-pagination__info {
+  font-family: ui-monospace, monospace;
+}
+
+
+/* [FIX] 加宽版抽屉：真正的全屏高度 */
+/* 让 body 撑满剩余空间（关键） */
+/* head 和 foot 不挤压 */
+/* 展开模式：更宽 */
+
+
+/* ══════════════════════════════════════════════════════════
+   [FORCE] 加宽版抽屉：顶级优先级，覆盖 industrial.css
+   用 html body 前缀 → 比 .ind-drawer 单类选择器更高优先级
+   ══════════════════════════════════════════════════════════ */
+
+
+
+
+
+
+
+
+/* 展开模式：占满 100vw */
+
+
+
+/* ═══════════════════════════════════════════════
+   [FINAL] 抽屉：挂到 body，z-index 绝对压制
+   ═══════════════════════════════════════════════ */
+body .ind-drawer-mask {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, .5) !important;
+  z-index: 999998 !important;
+}
+
+body .ind-drawer.ind-drawer--wide {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  width: min(1400px, 96vw) !important;
+  max-width: 96vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #0d1117 !important;
+  border-left: 2px solid rgba(118,169,255,.4) !important;
+  box-shadow: -8px 0 40px rgba(0,0,0,.7) !important;
+}
+
+body .ind-drawer.ind-drawer--wide.ind-drawer--fullscreen {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  left: 0 !important;
+  border-left: none !important;
+}
+
+body .ind-drawer.ind-drawer--wide .ind-drawer__head {
+  flex: 0 0 auto !important;
+}
+body .ind-drawer.ind-drawer--wide .ind-drawer__body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 0 24px 20px 24px !important;
+}
+body .ind-drawer.ind-drawer--wide .ind-drawer__foot {
+  flex: 0 0 auto !important;
+}

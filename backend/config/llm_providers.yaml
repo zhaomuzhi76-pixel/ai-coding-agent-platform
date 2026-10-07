@@ -1,0 +1,157 @@
+default_provider: ollama-local
+default_model: locooperator-4b-8k
+providers:
+- name: ollama-local
+  type: ollama
+  display_name: 本地 Ollama
+  base_url: http://127.0.0.1:11434
+  api_key: ''
+  models:
+  - id: qwen2.5:0.5b
+    display_name: qwen2.5:0.5b
+    context_window: 32768
+    max_output: 8192
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0
+    cost_output_per_1k: 0
+    strengths:
+    - local
+    - chat
+  - id: qwen3:8b
+    display_name: qwen3:8b
+    context_window: 40960
+    max_output: 8192
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0
+    cost_output_per_1k: 0
+    strengths:
+    - local
+    - chat
+  - id: qwen2.5-coder:7b
+    display_name: qwen2.5-coder:7b
+    context_window: 32768
+    max_output: 8192
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0
+    cost_output_per_1k: 0
+    strengths:
+    - local
+    - chat
+- name: anthropic-claude
+  type: anthropic
+  display_name: Anthropic Claude
+  base_url: https://api.anthropic.com
+  api_key: ${ANTHROPIC_API_KEY}
+  models:
+  - id: claude-3-5-sonnet-20241022
+    display_name: Claude 3.5 Sonnet
+    context_window: 200000
+    max_output: 8192
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0.003
+    cost_output_per_1k: 0.015
+    strengths:
+    - reasoning
+    - coding
+    - long-context
+- name: openai-compat
+  type: openai_compatible
+  display_name: OpenAI 兼容网关
+  base_url: ${OPENAI_BASE_URL}
+  api_key: ${OPENAI_API_KEY}
+  models:
+  - id: gpt-4o-mini
+    display_name: GPT-4o mini
+    context_window: 128000
+    max_output: 16384
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0.00015
+    cost_output_per_1k: 0.0006
+    strengths:
+    - fast
+    - cheap
+- name: qwen3.8-max
+  type: openai_compatible
+  display_name: qwen3.8-max
+  base_url: https://maas.qianwenaiapi.com/compatible-mode/v1
+  api_key: sk-ws-H.PLLXIDD.PoEq.MEQCIDEe3nBbJQ1EKbYHVhS8aJvnT8RRHOqeLwBaP6Yb3zMnAiAtg87on4us_xQWdOJp-pUUF7anjY2jXyvJTSW5Pgu1aw
+  models:
+  - id: qwen3.8-max
+    display_name: qwen3.8-max
+    context_window: 32768
+    max_output: 8192
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0
+    cost_output_per_1k: 0
+    strengths: []
+- name: glm-5.3
+  type: openai_compatible
+  display_name: glm-5.3
+  base_url: https://open.bigmodel.cn/api/paas/v4
+  api_key: 90404108c4f8485f933bfa880ff73eb2.7M81kWaCLtt4HRVV
+  models:
+  - id: glm-5.3
+    display_name: glm-5.3
+    context_window: 32768
+    max_output: 8192
+    supports_tool_call: true
+    supports_stream: true
+    supports_embedding: false
+    cost_input_per_1k: 0
+    cost_output_per_1k: 0
+    strengths: []
+agent_routing:
+  intent:
+  - ollama-local/qwen2.5-coder:7b
+  - dashscope-qwen/qwen-plus
+  plan:
+  - dashscope-maas/qwen3.8-max
+  - dashscope-qwen/qwen-max
+  - ollama-local/qwen2.5-coder:7b
+  - ollama-local/locooperator-4b-8k
+  code:
+  - ollama-local/qwen2.5-coder:7b
+  - dashscope-qwen/qwen-plus
+  - ollama-local/locooperator-4b-8k
+  review:
+  - dashscope-qwen/qwen-max
+  - ollama-local/qwen2.5-coder:7b
+  complex:
+  - dashscope-qwen/qwen-max
+  - ollama-local/qwen2.5-coder:7b
+embeddings:
+- name: ollama-qwen3-emb
+  provider: ollama-local
+  model: qwen3-embedding:4b
+  dimension: 4096
+  default: true
+- name: dashscope-text-emb-v3
+  provider: dashscope-qwen
+  model: text-embedding-v3
+  dimension: 1024
+  default: false
+rerankers:
+- name: ollama-qwen3-rerank
+  provider: ollama-local
+  model: pdurugyan/qwen3-reranker-0.6b-q8_0:latest
+  default: true
+vector_store:
+  driver: chroma
+  path: ./vector_db
+  collection: code_index
+  default_embedding: ollama-qwen3-emb
+  default_reranker: ollama-qwen3-rerank
+  top_k: 10
+  rerank_top_k: 5

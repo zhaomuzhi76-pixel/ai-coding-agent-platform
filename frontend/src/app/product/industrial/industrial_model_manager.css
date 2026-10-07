@@ -1,0 +1,180 @@
+.industrial-model-manager {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+  padding: 11px;
+  border: 1px solid #1d2a3a;
+  border-radius: 10px;
+  background: #0a111b;
+}
+
+.industrial-model-manager--expanded {
+  min-height: 540px;
+  padding: 16px;
+}
+
+.industrial-model-manager__top {
+  display: grid;
+  gap: 8px;
+}
+
+.industrial-model-manager__top > div {
+  display: grid;
+  gap: 3px;
+}
+
+.industrial-model-manager__top strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.industrial-model-manager__top select {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 8px;
+  border: 1px solid #233249;
+  border-radius: 7px;
+  color: #dbe5f1;
+  background: #0d1723;
+}
+
+.industrial-model-manager__list {
+  display: grid;
+  gap: 7px;
+}
+
+.industrial-model-card {
+  display: grid;
+  gap: 7px;
+  padding: 9px;
+  border: 1px solid #1b2a3c;
+  border-radius: 8px;
+  background: #0b131e;
+}
+
+.industrial-model-card--active {
+  border-color: #31577f;
+  background: #0f1927;
+}
+
+.industrial-model-card__main {
+  display: grid;
+  gap: 3px;
+  border: 0;
+  padding: 0;
+  color: #dfe8f5;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.industrial-model-card__main strong {
+  font-size: 11px;
+}
+
+.industrial-model-card__main span,
+.industrial-model-card__main small {
+  color: #708097;
+  font-size: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.industrial-model-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.industrial-model-card__actions button,
+.industrial-model-editor__title button {
+  min-height: 28px;
+  padding: 0 8px;
+  border: 1px solid #24354b;
+  border-radius: 6px;
+  color: #8fa0b5;
+  background: #0c1520;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.industrial-model-editor {
+  display: grid;
+  gap: 9px;
+  padding-top: 10px;
+  border-top: 1px solid #1a2737;
+}
+
+.industrial-model-editor__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #d9e4f3;
+  font-size: 11px;
+}
+
+.industrial-model-editor__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.industrial-model-editor__grid label {
+  display: grid;
+  gap: 4px;
+}
+
+.industrial-model-editor__grid span {
+  color: #62738a;
+  font-size: 9px;
+}
+
+.industrial-model-editor__grid input,
+.industrial-model-editor__grid select {
+  min-height: 34px;
+  padding: 0 8px;
+  border: 1px solid #1f3046;
+  border-radius: 7px;
+  color: #dce6f3;
+  background: #0d1723;
+}
+
+.industrial-model-editor__grid input:focus,
+.industrial-model-editor__grid select:focus {
+  outline: none;
+  border-color: #477bb5;
+}
+
+.industrial-primary-action {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #3d73ad;
+  border-radius: 7px;
+  color: #eff7ff;
+  background: #17355a;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.industrial-primary-action:hover:not(:disabled) {
+  background: #1c426d;
+}
+
+.industrial-inline-error {
+  padding: 8px 9px;
+  border: 1px solid #583641;
+  border-radius: 7px;
+  color: #f09a9f;
+  background: #24141a;
+  font-size: 10px;
+}
+
+@media (max-width: 700px) {
+  .industrial-model-editor__grid {
+    grid-template-columns: 1fr;
+  }
+}

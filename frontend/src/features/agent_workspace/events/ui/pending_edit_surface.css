@@ -1,0 +1,86 @@
+.pending-edit-surface {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 10px; height: 100%; overflow-y: auto;
+  background: #0b1118; color: #d9e2ec;
+}
+.pending-edit-surface__header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 10px; border: 1px solid #334966; border-radius: 6px;
+  background: #16212f; font-size: 11px; color: #7aa2f7; font-weight: 600;
+}
+.pending-edit-surface__header strong { color: #e8f0fa; }
+.pending-edit-card {
+  border: 1px solid #253244; border-radius: 6px;
+  background: #0d131a; overflow: hidden;
+}
+.pending-edit-card__head {
+  display: flex; gap: 8px; align-items: center;
+  padding: 6px 10px; background: #101720;
+  border-bottom: 1px solid #1f2b38; font-size: 11px;
+}
+.pending-edit-card__head code {
+  color: #c0e0ff; background: #16212f;
+  padding: 1px 6px; border-radius: 3px;
+}
+.pending-edit-card__path {
+  color: #a8b8cd; font-family: ui-monospace, monospace;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pending-edit-card__diff {
+  margin: 0; padding: 10px 12px; max-height: 240px;
+  overflow: auto; font-family: ui-monospace, monospace;
+  font-size: 11px; line-height: 1.5; color: #c8d6e6; white-space: pre;
+}
+.pending-edit-card__actions {
+  display: flex; gap: 8px; padding: 8px 10px;
+  border-top: 1px solid #1f2b38; background: #0a0f16;
+}
+.pending-edit-card__actions button {
+  padding: 4px 12px; border: 1px solid #304052; border-radius: 4px;
+  background: #151f2a; color: #d9e4ef; font-size: 11px; cursor: pointer;
+}
+.pending-edit-card__actions button:first-child {
+  background: #1a3556; border-color: #587ca9; color: #f0f6ff;
+}
+.pending-edit-card__actions button:disabled {
+  opacity: 0.5; cursor: not-allowed;
+}
+
+.pending-edit-surface__bulk {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.pending-edit-surface__bulk button {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.pending-edit-surface__bulk button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.pending-edit-surface__approve {
+  background: rgba(80, 200, 120, 0.15) !important;
+  border-color: rgba(80, 200, 120, 0.5) !important;
+  color: #7ee2a8 !important;
+}
+.pending-edit-surface__reject {
+  background: rgba(255, 100, 100, 0.15) !important;
+  border-color: rgba(255, 100, 100, 0.5) !important;
+  color: #ff9090 !important;
+}
+.pending-edit-card.is-checked {
+  border-color: rgba(118, 169, 255, 0.5);
+  background: rgba(118, 169, 255, 0.04);
+}
+.pending-edit-card__check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}

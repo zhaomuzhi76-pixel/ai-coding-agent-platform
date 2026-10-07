@@ -1,0 +1,290 @@
+/* ===================================================================
+   编辑器主题 —— 全部走 CSS 变量，将来设置页直接覆盖 --editor-*
+   默认配色参考 GitHub Dark / VSCode Dark+ / Cursor Dark
+   =================================================================== */
+:root {
+  --editor-bg: #0d1117;             /* 编辑区背景 */
+  --editor-bg-raised: #161b22;      /* 顶部 header / gutter 背景 */
+  --editor-border: #21262d;         /* 分隔线 */
+  --editor-fg: #e6edf3;             /* 正文（明显亮于背景，对比度 > 15:1） */
+  --editor-fg-soft: #9ba7b4;        /* 次要文字 */
+  --editor-gutter-fg: #6e7681;      /* 行号 */
+  --editor-gutter-fg-active: #b1bac4;
+  --editor-caret: #58a6ff;
+  --editor-selection: #264f78;
+  --editor-font: ui-monospace, SFMono-Regular, Menlo, Consolas, "Cascadia Code", monospace;
+  --editor-font-size: 13px;
+  --editor-line-height: 1.7;
+
+  --editor-diff-add-bg: rgba(46,160,67,.15);
+  --editor-diff-add-fg: #7ee787;
+  --editor-diff-del-bg: rgba(248,81,73,.15);
+  --editor-diff-del-fg: #ffa198;
+}
+
+.workspace-editor {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 38px minmax(0, 1fr);
+  overflow: hidden;
+  background: var(--editor-bg);
+  color: var(--editor-fg);
+}
+
+.workspace-editor__header {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 10px 0 14px;
+  border-bottom: 1px solid var(--editor-border);
+  background: var(--editor-bg-raised);
+}
+.workspace-editor__file,
+.workspace-editor__actions {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+.workspace-editor__file { gap: 8px; overflow: hidden; }
+.workspace-editor__file-icon { flex: 0 0 auto; color: #58a6ff; font-size: 11px; }
+.workspace-editor__file strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--editor-fg);
+  font-size: 12px;
+  font-weight: 600;
+}
+.workspace-editor__modified { flex: 0 0 auto; color: #d29922; font-size: 9px; }
+.workspace-editor__diff-badge {
+  flex: 0 0 auto;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #1f6feb;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.workspace-editor__actions { flex: 0 0 auto; gap: 8px; }
+.workspace-editor__status { color: var(--editor-fg-soft); font-size: 10px; }
+.workspace-editor__actions button {
+  min-width: 54px;
+  min-height: 27px;
+  padding: 0 9px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: var(--editor-fg);
+  font-size: 10px;
+  cursor: pointer;
+}
+.workspace-editor__actions button:hover:not(:disabled) { background: #30363d; }
+.workspace-editor__actions button:disabled { opacity: .4; cursor: not-allowed; }
+.workspace-editor__actions .workspace-editor__accept {
+  border-color: #238636; background: #238636; color: #ffffff;
+}
+.workspace-editor__actions .workspace-editor__accept:hover { background: #2ea043; }
+.workspace-editor__actions .workspace-editor__reject {
+  border-color: #da3633; background: #da3633; color: #ffffff;
+}
+.workspace-editor__actions .workspace-editor__reject:hover { background: #f85149; }
+
+.workspace-editor__body {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--editor-bg);
+}
+.workspace-editor__code {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.workspace-editor__gutter {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 16px;
+  border-right: 1px solid var(--editor-border);
+  background: var(--editor-bg-raised);
+  color: var(--editor-gutter-fg);
+  font: var(--editor-font-size)/var(--editor-line-height) var(--editor-font);
+  text-align: right;
+  user-select: none;
+}
+.workspace-editor__gutter div {
+  min-height: var(--editor-line-height);
+  padding-right: 12px;
+}
+.workspace-editor__content-layer {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--editor-bg);
+}
+.workspace-editor__preview,
+.workspace-editor__content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px 24px 24px;
+  border: 0;
+  outline: 0;
+  font: var(--editor-font-size)/var(--editor-line-height) var(--editor-font);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 2;
+}
+.workspace-editor__preview {
+  z-index: 0;
+  overflow: auto;
+  pointer-events: none;
+  background: var(--editor-bg);
+  color: var(--editor-fg);
+  scrollbar-width: none;
+}
+.workspace-editor__preview::-webkit-scrollbar { display: none; }
+.workspace-editor__content {
+  z-index: 1;
+  resize: none;
+  overflow: auto;
+  background: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  caret-color: var(--editor-caret);
+  text-align: left;
+  text-indent: 0;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+.workspace-editor__content:focus { outline: 0; box-shadow: none; }
+.workspace-editor__content::selection {
+  background: var(--editor-selection);
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.workspace-editor__empty {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 32px;
+  color: var(--editor-fg-soft);
+  text-align: center;
+  font-size: 12px;
+}
+.workspace-editor__empty strong { color: var(--editor-fg); font-size: 13px; }
+.workspace-editor__empty span { color: var(--editor-fg-soft); }
+.workspace-editor__error {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  padding: 8px 10px;
+  border: 1px solid #da3633;
+  border-radius: 6px;
+  background: #2d1618;
+  color: #ffa198;
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .workspace-editor__code { grid-template-columns: 44px minmax(0,1fr); }
+  .workspace-editor__preview,
+  .workspace-editor__content { padding-inline: 14px; }
+  .workspace-editor__gutter { font-size: 11px; }
+  .workspace-editor__status { display: none; }
+}
+
+/* ===== 未保存状态：明显标识 ===== */
+
+/* 头部徽章：橙色描边 + 脉冲 */
+.workspace-editor__unsaved-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  border: 1px solid #d29922;
+  border-radius: 4px;
+  background: rgba(210, 153, 34, 0.12);
+  color: #d29922;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  animation: unsaved-pulse 2s ease-in-out infinite;
+}
+
+@keyframes unsaved-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* Save 按钮：有改动时高亮 */
+.workspace-editor__save-btn {
+  padding: 4px 14px;
+  border: 1px solid #304052;
+  border-radius: 4px;
+  background: #151f2a;
+  color: #d9e4ef;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.workspace-editor__save-btn:hover:not(:disabled) {
+  background: #1f2c3a;
+  border-color: #4a6a8a;
+}
+.workspace-editor__save-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* 有未保存改动：突出显示 */
+.workspace-editor__save-btn.is-dirty {
+  background: #2d2010;
+  border-color: #d29922;
+  color: #f0c674;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(210, 153, 34, 0.35);
+}
+.workspace-editor__save-btn.is-dirty:hover:not(:disabled) {
+  background: #3d2a15;
+  border-color: #e0a838;
+  box-shadow: 0 0 0 2px rgba(210, 153, 34, 0.5);
+}
+
+/* 保存中 */
+.workspace-editor__save-btn.is-saving {
+  background: #16212f;
+  border-color: #4a6a8a;
+  color: #a8b8cd;
+}
+
+/* 编辑器顶部左侧原有的 ● 位置（如果旧样式还在）加深一点 */
+.workspace-editor__modified {
+  color: #d29922;
+  margin-left: 6px;
+  font-size: 14px;
+}

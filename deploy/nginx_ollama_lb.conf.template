@@ -1,0 +1,41 @@
+# Ollama 负载均衡 Nginx 模板
+# 用法：
+#   1. 复制到 /etc/nginx/conf.d/ollama_lb.conf
+#   2. 按需打开多个 server 行（取消注释）
+#   3. nginx -t && systemctl reload nginx
+#
+# 部署前提：
+#   · 每个 ollama 实例用 OLLAMA_HOST=127.0.0.1:1143X 启动
+#   · 每实例有独立 OLLAMA_MODELS 或共享磁盘
+
+upstream ollama_pool {
+    # 默认 1 个实例；多实例时取消注释并按需增加
+    server 127.0.0.1:11434 max_fails=3 fail_timeout=30s;
+    # server 127.0.0.1:11435 max_fails=3 fail_timeout=30s;
+    # server 127.0.0.1:11436 max_fails=3 fail_timeout=30s;
+    keepalive 32;
+}
+
+server {
+    listen 11440;
+    server_name _;
+
+    # 单次推理最长 5 分钟（大模型首 token 慢）
+    proxy_read_timeout 300s;
+    proxy_send_timeout 300s;
+
+    location / {
+        proxy_pass         http://ollama_pool;
+        proxy_http_version 1.1;
+        proxy_set_header   Connection "";
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_next_upstream error timeout http_502 http_503;
+    }
+
+    # 健康检查（用 ollama 自带的 /api/tags）
+    location /healthz {
+        proxy_pass http://ollama_pool/api/tags;
+        access_log off;
+    }
+}

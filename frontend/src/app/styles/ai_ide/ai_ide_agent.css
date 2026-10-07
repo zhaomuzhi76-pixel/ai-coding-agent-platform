@@ -1,0 +1,27 @@
+.ide-agent {
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  background:var(--ide-panel);
+}
+
+.ide-agent-header {
+  height:40px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  border-bottom:1px solid var(--ide-border);
+}
+
+.ide-agent-message {
+  padding:12px;
+  margin:8px;
+  border-radius:8px;
+  background:var(--ide-panel-soft);
+}
+
+.ide-agent-input {
+  margin-top:auto;
+  padding:12px;
+  border-top:1px solid var(--ide-border);
+}

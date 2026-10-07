@@ -1,0 +1,137 @@
+.execution-timeline {
+  margin-top: 16px;
+  border: 1px solid #202d40;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0c121c;
+}
+
+.execution-timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #202d40;
+}
+
+.execution-timeline-header > div {
+  display: grid;
+  gap: 4px;
+}
+
+.execution-timeline-header span:first-child {
+  color: #738197;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.execution-timeline-header strong {
+  font-size: 15px;
+}
+
+.timeline-state {
+  padding: 5px 8px;
+  border: 1px solid #31445b;
+  border-radius: 999px;
+  color: #8eafd0;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.timeline-state-done {
+  border-color: #315d52;
+  color: #8cc9b7;
+}
+
+.timeline-state-error {
+  border-color: #63383e;
+  color: #e7a7ae;
+}
+
+.execution-timeline-list {
+  display: grid;
+}
+
+.execution-timeline-empty {
+  padding: 24px 18px;
+  color: #68788c;
+  font-size: 12px;
+}
+
+.execution-timeline-item {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #182331;
+}
+
+.execution-timeline-item:last-child {
+  border-bottom: 0;
+}
+
+.timeline-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.timeline-marker::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  bottom: -14px;
+  width: 1px;
+  background: #28384c;
+}
+
+.execution-timeline-item:last-child
+.timeline-marker::after {
+  display: none;
+}
+
+.timeline-marker span {
+  position: relative;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: #607b99;
+}
+
+.timeline-content {
+  min-width: 0;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.timeline-meta strong {
+  font-size: 12px;
+}
+
+.timeline-meta small {
+  color: #5f7085;
+  font-size: 10px;
+}
+
+.timeline-content pre {
+  margin: 0;
+  padding: 9px 10px;
+  overflow: auto;
+  border: 1px solid #1c2a3a;
+  border-radius: 8px;
+  background: #080e16;
+  color: #9dadbf;
+  font-size: 11px;
+  line-height: 1.45;
+}

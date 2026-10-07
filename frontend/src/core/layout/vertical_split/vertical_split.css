@@ -1,0 +1,81 @@
+/* 分隔条：14px 宽命中区 + 常态 3px 亮蓝 + hover 5px 发光。 */
+
+.vertical-split {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.vertical-split__pane {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-split__pane > * {
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+/* 手柄：14px 高，命中区大 */
+.vertical-split__handle {
+  position: relative;
+  height: 14px;
+  min-height: 14px;
+  width: 100%;
+  background: #0d141f;
+  cursor: row-resize !important;
+  user-select: none;
+  touch-action: none;
+  outline: none;
+  pointer-events: auto !important;
+  z-index: 100 !important;
+  transition: background 120ms ease;
+}
+
+/* 常态：3px 亮蓝，微发光 */
+.vertical-split__handle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%);
+  background: #5a82c0;
+  box-shadow: 0 0 6px rgba(122, 162, 247, 0.45);
+  transition: background 120ms ease, height 120ms ease,
+              box-shadow 120ms ease;
+}
+
+.vertical-split__handle:hover {
+  background: #182234;
+}
+
+.vertical-split__handle:hover::before,
+.vertical-split__handle:focus-visible::before {
+  height: 5px;
+  background: #7aa2f7;
+  box-shadow: 0 0 16px rgba(122, 162, 247, 1);
+}
+
+.vertical-split__handle:active::before,
+.vertical-split--dragging .vertical-split__handle::before {
+  height: 6px;
+  background: #a0c0ff;
+  box-shadow: 0 0 20px rgba(122, 162, 247, 1.2);
+}
+
+.vertical-split__handle:focus-visible {
+  outline: 1px solid #7aa2f7;
+  outline-offset: -1px;
+}
+
+body.vertical-split--dragging,
+body.vertical-split--dragging * {
+  cursor: row-resize !important;
+  user-select: none !important;
+}
